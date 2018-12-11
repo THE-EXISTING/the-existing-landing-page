@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon / Scroll down</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon-/-Scroll-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(1.000000, 1.000000)" fill="#FFFFFF">
+            <polygon id="Path" transform="translate(14.000000, 12.180000) scale(1, -1) translate(-14.000000, -12.180000) " points="10.0133333 15.3866667 14 11.4 17.9866667 15.3866667 19.2 14.1733333 14 8.97333333 8.8 14.1733333"></polygon>
+            <polygon id="Path" transform="translate(14.000000, 18.160000) scale(1, -1) translate(-14.000000, -18.160000) " points="19.2 17.2933333 8.8 17.2933333 8.8 19.0266667 19.2 19.0266667"></polygon>
+            <path d="M14,27.8666667 C6.34165147,27.8666667 0.133333333,21.6583485 0.133333333,14 C0.133333333,6.34165147 6.34165147,0.133333333 14,0.133333333 C21.6583485,0.133333333 27.8666667,6.34165147 27.8666667,14 C27.8666667,21.6583485 21.6583485,27.8666667 14,27.8666667 Z M14,26.1333333 C20.701055,26.1333333 26.1333333,20.701055 26.1333333,14 C26.1333333,7.29894504 20.701055,1.86666667 14,1.86666667 C7.29894504,1.86666667 1.86666667,7.29894504 1.86666667,14 C1.86666667,20.701055 7.29894504,26.1333333 14,26.1333333 Z" id="Oval" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+{
+  "name": "create-next-example-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.9.3",
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "styled-components": "^4.1.2",
+    "styled-media-query": "^2.0.2"
+  }
+}
