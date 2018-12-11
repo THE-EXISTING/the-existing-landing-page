@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export",
+    "deploy": "yarn export && netlify deploy --dir=out --prod"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.9.3",

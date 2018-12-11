@@ -1,15 +1,17 @@
 import React from 'react'
-import Link from 'next/link'
+import styled from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/nav'
+import Home from '../components/Home'
 
-const Home = () => (
+const Index = () => (
   <div>
     <Head title="Home" />
     <Nav />
-
-    <div>test</div>
+    <Home />
   </div>
 )
 
-export default Home
+export default Index
+
+// https://the-existing.netlify.com/

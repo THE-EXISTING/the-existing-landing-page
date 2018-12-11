@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'avenirnext-medium';
-    src: url('../static/font/avenirnext-medium.ttf');
+    src: url('../static/font/avenirnext_medium.ttf');
   }
 
   @font-face {
@@ -36,15 +36,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .active {
-    color: #2196f3 !important;
     opacity: 1 !important;
-    border-bottom: 2px solid !important;
+    padding-bottom: 4.5px;
+    border-bottom: 2px solid;
   }
 `
 
 const HeaderContainer = styled.div`
   font-family: andale-mono;
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 200;
 `
@@ -121,13 +122,7 @@ const ContactButton = styled.button`
   height: 28px;
   color: #ffffff;
   background-color: transparent;
-  border-image-slice: 1;
-  border-width: 1px;
   border-radius: 5px;
-
-  &::after {
-    /* border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%); */
-  }
 `
 
 class Nav extends Component {
