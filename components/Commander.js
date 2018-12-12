@@ -12,6 +12,13 @@ const CommnaderContainer = styled.div`
   flex-wrap: wrap;
 `
 
+const ImageOverlay = styled.img`
+  position: absolute;
+  opacity: 0.03;
+  bottom: 0;
+  right: -220px;
+`
+
 const team = [
   {
     img: '/static/team/Nonthawit.jpg',
@@ -45,6 +52,7 @@ function Commander() {
           <CommanderItem key={item.name} {...item} />
         ))}
       </CommnaderContainer>
+      <ImageOverlay src="/static/Icon/Mascot.svg" alt="" />
     </Layout>
   )
 }

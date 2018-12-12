@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 const HomeContainer = styled.div`
@@ -83,6 +84,11 @@ const ImgOverlay = styled.img`
   position: absolute;
 `
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  margin-top: 14rem;
+`
+
 const ContactButton = styled.button`
   cursor: pointer;
   font-size: 2rem;
@@ -93,7 +99,6 @@ const ContactButton = styled.button`
   background-color: transparent;
   border-radius: 5px;
   border: 2px solid;
-  margin-top: 6.4rem;
 `
 
 const ScrollDownContainer = styled.div`
@@ -126,9 +131,9 @@ const Home = () => (
           limit does <span style={{ color: '#88DBDE' }}>not</span> exist
         </span>
       </ExistingText>
-      <div>
+      <ButtonContainer>
         <ContactButton>CONTACT</ContactButton>
-      </div>
+      </ButtonContainer>
       <ScrollDownContainer>
         <img src="/static/Icon/Scroll_down.svg" alt="" />
       </ScrollDownContainer>

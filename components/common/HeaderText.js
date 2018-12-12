@@ -8,13 +8,13 @@ const Header = styled.p`
 
   &:after {
     content: '';
-    height: 2px;
+    height: 4px;
     background: -moz-linear-gradient(left, #ffffff 0%, #adc4c8 100%);
     background: -webkit-linear-gradient(left, #ffffff 0%, #adc4c8 100%);
     background: linear-gradient(left, #ffffff 0%, #adc4c8 100%);
-    width: 40%;
+    width: 3.2rem;
     display: block;
-    margin-top: 4.5px;
+    margin-top: 8px;
   }
 `
 

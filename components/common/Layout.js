@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
+  position: relative;
   text-align: left;
   padding: 5rem;
   font-size: 1.8rem;
+  overflow: hidden;
 `
 
 const TextContainer = styled.div`

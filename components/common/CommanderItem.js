@@ -5,11 +5,12 @@ const CommanderItemContainer = styled.div`
   position: relative;
   flex: 1;
   padding: 2rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* background-image: url('../../static/Icon/Mascot.svg');
-  background-position: center center; */
+  transition: all 0.3s;
+  will-change: transition;
 
   &:hover {
     box-shadow: 0 0 0 2px #d8d8d8;
