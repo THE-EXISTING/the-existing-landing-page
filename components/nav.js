@@ -35,6 +35,11 @@ const GlobalStyle = createGlobalStyle`
     color: #FFFFFF;
   }
 
+  .scroll {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 4px #1f1f1f, 0 4px 8px #1f1f1f;
+  }
+
   .active {
     opacity: 1 !important;
     padding-bottom: 4.5px;
@@ -48,12 +53,13 @@ const HeaderContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 200;
+  transition: all 0.5s ease;
+  will-change: transition;
 `
 
 const HeaderStyle = styled.header`
   display: flex;
   align-items: center;
-  padding: 3.6rem 0;
   max-width: 984px;
   margin: 0 auto;
   transition: all 0.3s;
@@ -67,9 +73,9 @@ const HeaderStyle = styled.header`
 `
 
 const LogoStyle = styled.div`
-  width: 50px;
-  height: 24px;
-  background-image: url('/static/icon/Logo/EX_color.svg');
+  width: 5rem;
+  height: 2.4rem;
+  background-image: url('/static/Logo/EX_color.svg');
 `
 
 const NavStyled = styled.nav`
@@ -103,7 +109,7 @@ const AStyle = styled.div`
     opacity: 0.7;
     border-bottom: 2px solid transparent;
     text-decoration: none;
-    padding-bottom: 4.5px;
+    padding-bottom: 0.45rem;
     transition: all 0.3s;
     will-change: transition;
 
@@ -118,20 +124,44 @@ const ContactButton = styled.button`
   cursor: pointer;
   font-size: 1.4rem;
   font-family: 'avenirnext-medium';
-  width: 100px;
-  height: 28px;
+  width: 10rem;
+  height: 2.8rem;
   color: #ffffff;
   background-color: transparent;
   border-radius: 5px;
 `
 
 class Nav extends Component {
+  state = {
+    isActive: false,
+    isScrollDown: false
+  }
+  onHandleNavbarScroll = () => {
+    let { isScrollDown } = this.state
+    window.scrollY > 15
+      ? !isScrollDown && this.setState({ isScrollDown: true })
+      : isScrollDown && this.setState({ isScrollDown: false })
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.onHandleNavbarScroll)
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onHandleNavbarScroll)
+  }
+
   render() {
+    let classHide = this.state.isScrollDown ? 'scroll' : ''
+
     return (
       <Fragment>
         <GlobalStyle />
-        <HeaderContainer>
-          <HeaderStyle>
+        <HeaderContainer className={classHide}>
+          <HeaderStyle
+            style={
+              this.state.isScrollDown ? { padding: '2rem 1.6rem' } : { padding: '3.6rem 1.6rem' }
+            }
+          >
             <div>
               <LogoStyle />
             </div>

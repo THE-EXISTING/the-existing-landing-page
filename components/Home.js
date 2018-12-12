@@ -8,11 +8,12 @@ const HomeContainer = styled.div`
 `
 
 const StarBGImg = styled.img`
-  height: 100vh;
+  min-height: 100vh;
   position: absolute;
   left: 0;
-  opacity: 0.2;
-  animation: MoveLeftRight 20s linear infinite;
+  right: 0;
+  opacity: 0.3;
+  animation: MoveLeftRight 120s linear infinite;
 
   @keyframes MoveLeftRight {
     0%,
@@ -30,10 +31,10 @@ const WorldBGImg = styled.img`
   width: 100%;
   left: 0;
   right: 0;
-  top: 70vh;
+  top: 64vh;
   margin: 0 auto;
   opacity: 0.3;
-  animation: Rotating 360s linear infinite;
+  animation: Rotating 560s linear infinite;
 
   @keyframes Rotating {
     from {
@@ -74,7 +75,7 @@ const ExistingText = styled.div`
   background-position: center center;
 
   span {
-    font-size: 24px;
+    font-size: 2.4rem;
   }
 `
 
@@ -86,23 +87,41 @@ const ContactButton = styled.button`
   cursor: pointer;
   font-size: 2rem;
   font-family: 'avenirnext-medium';
-  width: 200px;
-  height: 48px;
+  width: 20rem;
+  height: 4.8rem;
   color: #ffffff;
   background-color: transparent;
   border-radius: 5px;
   border: 2px solid;
-  margin-top: 64px;
+  margin-top: 6.4rem;
+`
+
+const ScrollDownContainer = styled.div`
+  position: absolute;
+  bottom: 3.2rem;
+  cursor: pointer;
+  z-index: 2;
+  animation: MoveUpDown 1s infinite alternate;
+  opacity: 0.6;
+
+  @keyframes MoveUpDown {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
 `
 
 const Home = () => (
   <HomeContainer>
-    <StarBGImg src="/static/image/star-bg.jpg" alt="" />
+    <StarBGImg src="/static/image/star_bg.jpg" alt="" />
     <ExistingContainer>
       <ExistingText>
-        <ImgOverlay src="/static/icon/logo/EX_overlay.svg" />
-        <img src="/static/icon/Logo/Existing_color.svg" alt="" />
-        <span style={{ padding: '0 20px' }}>|</span>
+        <ImgOverlay src="/static/Logo/EX_overlay.svg" alt="" />
+        <img src="/static/Logo/Existing_color.svg" alt="" />
+        <span style={{ padding: '0 2rem' }}>|</span>
         <span>
           limit does <span style={{ color: '#88DBDE' }}>not</span> exist
         </span>
@@ -110,9 +129,11 @@ const Home = () => (
       <div>
         <ContactButton>CONTACT</ContactButton>
       </div>
+      <ScrollDownContainer>
+        <img src="/static/Icon/Scroll_down.svg" alt="" />
+      </ScrollDownContainer>
     </ExistingContainer>
-
-    <WorldBGImg src="/static/image/planet-compress.png" />
+    <WorldBGImg src="/static/image/planet_compress.png" />
   </HomeContainer>
 )
 
