@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import Link from 'next/link'
 import styled, { createGlobalStyle } from 'styled-components'
 import media from 'styled-media-query'
+import { scroller, Link } from 'react-scroll'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -42,8 +42,8 @@ const GlobalStyle = createGlobalStyle`
 
   .active {
     opacity: 1 !important;
-    padding-bottom: 4.5px;
-    border-bottom: 2px solid;
+    padding-bottom: 4.5px !important;
+    border-bottom: 2px solid !important;
   }
 `
 
@@ -133,7 +133,6 @@ const ContactButton = styled.button`
 
 class Nav extends Component {
   state = {
-    isActive: false,
     isScrollDown: false
   }
   onHandleNavbarScroll = () => {
@@ -141,6 +140,14 @@ class Nav extends Component {
     window.scrollY > 15
       ? !isScrollDown && this.setState({ isScrollDown: true })
       : isScrollDown && this.setState({ isScrollDown: false })
+  }
+
+  onHandleScrollTo = to => {
+    scroller.scrollTo(to, {
+      duration: 500,
+      delay: 0,
+      smooth: 'easeInOutQuad'
+    })
   }
 
   componentDidMount() {
@@ -170,8 +177,8 @@ class Nav extends Component {
                 <Link
                   activeClass="active"
                   spy={true}
-                  to="wallet"
-                  onClick={() => this.onHandleScrollTo('wallet')}
+                  to="home"
+                  onClick={() => this.onHandleScrollTo('home')}
                 >
                   Home
                 </Link>
@@ -180,8 +187,8 @@ class Nav extends Component {
                 <Link
                   activeClass="active"
                   spy={true}
-                  to="features"
-                  onClick={() => this.onHandleScrollTo('features')}
+                  to="vision"
+                  onClick={() => this.onHandleScrollTo('vision')}
                 >
                   Vision
                 </Link>
@@ -190,18 +197,8 @@ class Nav extends Component {
                 <Link
                   activeClass="active"
                   spy={true}
-                  to="team"
-                  onClick={() => this.onHandleScrollTo('team')}
-                >
-                  Commander
-                </Link>
-              </AStyle>
-              <AStyle>
-                <Link
-                  activeClass="active"
-                  spy={true}
-                  to="contact"
-                  onClick={() => this.onHandleScrollTo('contact')}
+                  to="project"
+                  onClick={() => this.onHandleScrollTo('project')}
                 >
                   Project
                 </Link>
@@ -210,11 +207,15 @@ class Nav extends Component {
                 <Link
                   activeClass="active"
                   spy={true}
-                  to="contact"
-                  onClick={() => this.onHandleScrollTo('contact')}
+                  to="commander"
+                  onClick={() => this.onHandleScrollTo('commander')}
                 >
-                  <ContactButton>CONTACT</ContactButton>
+                  Commander
                 </Link>
+              </AStyle>
+
+              <AStyle>
+                <ContactButton>CONTACT</ContactButton>
               </AStyle>
             </NavStyled>
           </HeaderStyle>

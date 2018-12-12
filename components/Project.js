@@ -23,7 +23,7 @@ const ProductCommingSoon = styled.p`
   opacity: 0.6;
 `
 
-function Vision() {
+function Project() {
   return (
     <Layout>
       <HeaderText>Project</HeaderText>
@@ -52,4 +52,4 @@ function Vision() {
   )
 }
 
-export default Vision
+export default Project
