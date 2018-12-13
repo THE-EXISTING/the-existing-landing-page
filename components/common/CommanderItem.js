@@ -30,7 +30,7 @@ const TeamImg = styled.img`
 `
 
 const FontAvenirContainer = styled.div`
-  font-family: avenirnext-medium;
+  font-family: ProductSans-Bold;
 `
 
 const ImgOverlay = styled.img`
@@ -47,6 +47,7 @@ const SocialContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   margin-top: 1rem;
+  z-index: 2;
 `
 
 const ImgSocial = styled.img`
@@ -71,6 +72,21 @@ class CommanderItem extends Component {
     })
   }
 
+  openNewTab = url => {
+    console.log('url: ', url)
+    window.open(url, '_blank')
+  }
+
+  renderIcon = index => {
+    if (index === 0) {
+      return '/static/Icon/Facebook.svg'
+    } else if (index === 1) {
+      return '/static/Icon/LinkedIn.svg'
+    } else if (index === 2) {
+      return '/static/Icon/Github.svg'
+    }
+  }
+
   render() {
     const { img, nickname, name, position, social } = this.props
     const { isHover } = this.state
@@ -80,21 +96,30 @@ class CommanderItem extends Component {
         onMouseOver={this.handleOnMouseHover}
         onMouseLeave={this.handleOnMouseLeave}
       >
-        <TeamImg src={img} isHover={isHover} />
-        <FontAvenirContainer>
-          <p style={{ fontSize: '1.6rem', marginBottom: '0' }}>{nickname}</p>
-          <p style={{ fontSize: '1.4rem', marginTop: '2px' }}>{name}</p>
-          <p style={{ fontSize: '1.6rem' }}>Co-founder</p>
-        </FontAvenirContainer>
+        <div>
+          <TeamImg src={img} isHover={isHover} />
+          <FontAvenirContainer>
+            <p style={{ fontSize: '1.6rem', marginBottom: '0' }}>{nickname}</p>
+            <p style={{ fontSize: '1.4rem', marginTop: '2px' }}>{name}</p>
+            <p style={{ fontSize: '1.6rem' }}>Co-founder</p>
+          </FontAvenirContainer>
 
-        <p style={{ opacity: '0.7' }}>
-          {position} <br />
-          Commander
-        </p>
+          <p style={{ opacity: '0.7' }}>
+            {position} <br />
+            Commander
+          </p>
+        </div>
         <SocialContainer>
-          <ImgSocial src="/static/Icon/Facebook.svg" alt="" />
-          <ImgSocial src="/static/Icon/LinkedIn.svg" alt="" />
-          <ImgSocial src="/static/Icon/Github.svg" alt="" />
+          {social.map((item, i) => {
+            return (
+              <ImgSocial
+                key={item}
+                src={this.renderIcon(i)}
+                alt=""
+                onClick={() => this.openNewTab(item)}
+              />
+            )
+          })}
         </SocialContainer>
         {isHover && <ImgOverlay src="/static/Icon/Mascot.svg" alt="" />}
       </CommanderItemContainer>

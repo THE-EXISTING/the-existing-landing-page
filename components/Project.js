@@ -23,6 +23,14 @@ const ProductComingSoon = styled.p`
   opacity: 0.6;
 `
 
+const VerticalLine = styled.hr`
+  transform: rotate(90deg);
+  width: 32px;
+  height: 2px;
+  background-color: #ffffff;
+  border: 0;
+`
+
 function Project() {
   return (
     <Layout>
@@ -33,7 +41,9 @@ function Project() {
         </FirtsProject>
         <DcenText>
           <img src="/static/Logo/DCEN.svg" alt="" />
-          <span style={{ padding: '0 2rem', fontSize: '4.2rem' }}>|</span>
+          <span style={{ padding: '0 2rem', fontSize: '4.2rem' }}>
+            <VerticalLine />
+          </span>
           <span style={{ textAlign: 'left' }}>
             Unlock all your restrictions to <br />{' '}
             <span style={{ color: '#F29100' }}>your first decentralized experience</span> <br />{' '}

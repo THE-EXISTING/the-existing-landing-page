@@ -6,7 +6,6 @@ import HeaderText from './common/HeaderText'
 const PartnerShipContainer = styled.div`
   display: flex;
   text-align: left;
-  margin-bottom: 5rem;
 `
 
 const NextzyQuite = styled.p`

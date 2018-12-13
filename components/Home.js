@@ -15,7 +15,7 @@ const StarBGImg = styled.img`
   left: 0;
   right: 0;
   opacity: 0.3;
-  animation: MoveLeftRight 120s linear infinite;
+  /* animation: MoveLeftRight 120s linear infinite;
 
   @keyframes MoveLeftRight {
     0%,
@@ -25,7 +25,7 @@ const StarBGImg = styled.img`
     50% {
       transform: translateX(-500px);
     }
-  }
+  } */
 `
 
 const WorldBGImg = styled.img`
@@ -33,10 +33,10 @@ const WorldBGImg = styled.img`
   width: 100%;
   left: 0;
   right: 0;
-  top: 64vh;
+  top: 68vh;
   margin: 0 auto;
   opacity: 0.3;
-  animation: Rotating 560s linear infinite;
+  animation: Rotating 1240s linear infinite;
 
   @keyframes Rotating {
     from {
@@ -93,7 +93,7 @@ const ButtonContainer = styled.div`
 const ContactButton = styled.button`
   cursor: pointer;
   font-size: 2rem;
-  font-family: 'avenirnext-medium';
+  font-family: ProductSans-Bold;
   width: 20rem;
   height: 4.8rem;
   color: #ffffff;
@@ -122,8 +122,17 @@ const ScrollDownContainer = styled.div`
 
 const ImgFlare = styled.img`
   position: absolute;
-  left: 0;
+  left: -55%;
+  top: -800%;
   opacity: 0.7;
+`
+
+const VerticalLine = styled.hr`
+  transform: rotate(90deg);
+  width: 32px;
+  height: 2px;
+  background-color: #ffffff;
+  border: 0;
 `
 
 const onHandleScrollTo = to => {
@@ -137,13 +146,17 @@ const onHandleScrollTo = to => {
 const Home = () => (
   <HomeContainer>
     <StarBGImg src="/static/image/star_bg.jpg" alt="" />
-    <ImgFlare src="/static/image/flare.png" />
     <ExistingContainer>
       <ExistingText>
         <ImgOverlay src="/static/Logo/EX_overlay.svg" alt="" />
-        <img src="/static/Logo/Existing_color.svg" alt="" />
-        <span style={{ padding: '0 2rem' }}>|</span>
-        <span>
+        <div>
+          <ImgFlare src="/static/image/flare.png" />
+          <img src="/static/Logo/Existing_color.svg" alt="" />
+        </div>
+        <span style={{ padding: '0 2rem' }}>
+          <VerticalLine />
+        </span>
+        <span style={{ width: '300px' }}>
           limit does <span style={{ color: '#88DBDE' }}>not</span> exist
         </span>
       </ExistingText>
@@ -151,9 +164,9 @@ const Home = () => (
         <ContactButton>CONTACT</ContactButton>
       </ButtonContainer>
       <ScrollDownContainer>
-        <Link spy={true} to="vision" onClick={() => onHandleScrollTo('vision')}>
-          <img src="/static/Icon/Scroll_down.svg" alt="" />
-        </Link>
+        <div onClick={() => onHandleScrollTo('vision')}>
+          <img src="/static/Icon/Scroll_down.svg" alt="" height="48" width="48" />
+        </div>
       </ScrollDownContainer>
     </ExistingContainer>
     <WorldBGImg src="/static/image/planet_compress.png" />

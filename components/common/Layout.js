@@ -4,7 +4,8 @@ import styled from 'styled-components'
 const Container = styled.div`
   position: relative;
   text-align: left;
-  padding: 5rem;
+  /* padding: 5rem; */
+  padding: 9rem 5rem 10.2rem 5rem;
   font-size: 1.8rem;
   overflow: hidden;
 `

@@ -11,7 +11,6 @@ const FooterContainer = styled.footer`
 
 const FooterBG = styled.img`
   position: absolute;
-  opacity: 0.3;
   height: 100%;
   width: 100%;
 `
@@ -46,7 +45,7 @@ const ContactContainer = styled.div`
 const ContactButton = styled.button`
   cursor: pointer;
   font-size: 1.4rem;
-  font-family: 'avenirnext-medium';
+  font-family: ProductSans-Bold;
   width: 10rem;
   height: 2.8rem;
   color: #ffffff;
@@ -55,6 +54,7 @@ const ContactButton = styled.button`
 `
 
 const ContactInfo = styled.div`
+  font-family: ProductSans-Bold;
   font-size: 2rem;
   display: flex;
 
@@ -64,9 +64,8 @@ const ContactInfo = styled.div`
 `
 
 const CopyRightsContainer = styled.div`
-  margin-top: 2.4rem;
+  margin-top: 1.4rem;
   font-size: 1.4rem;
-  opacity: 0.7;
   display: flex;
   justify-content: space-between;
 `
@@ -92,7 +91,7 @@ function footer() {
             </ContactContainer>
           </AddressContainer>
           <CopyRightsContainer>
-            <p>© 2020 Existing company. All Rights Reserved</p>
+            <p style={{ opacity: '0.7' }}>© 2020 Existing company. All Rights Reserved</p>
             <img src="/static/Icon/IPFS.svg" alt="" />
           </CopyRightsContainer>
         </FooterContent>

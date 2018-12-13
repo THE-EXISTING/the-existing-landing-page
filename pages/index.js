@@ -18,13 +18,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'avenirnext-demi-bold';
-    src: url('../static/font/avenirnext_demi_bold.ttf');
-  }
-
-  @font-face {
-    font-family: 'avenirnext-medium';
-    src: url('../static/font/avenirnext_medium.ttf');
+    font-family: 'ProductSans-Bold';
+    src: url('../static/font/ProductSans-Bold.ttf');
   }
 
   @font-face {

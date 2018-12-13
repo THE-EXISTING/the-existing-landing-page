@@ -6,7 +6,7 @@ import CommanderItem from './common/CommanderItem'
 
 const CommnaderContainer = styled.div`
   text-align: center;
-  margin: 2rem 0 10rem 0;
+  margin: 2rem 0 0 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -25,21 +25,33 @@ const team = [
     nickname: 'THE KHAENG',
     name: 'Nonthawit',
     position: `Mobile Development & UI/UX`,
-    social: ['facebook', 'github', 'linkedin']
+    social: [
+      'https://www.facebook.com/nonthawit',
+      'https://www.linkedin.com/in/nonthawit/',
+      'https://github.com/TheKhaeng'
+    ]
   },
   {
     img: '/static/team/Supakorn.jpg',
     nickname: 'ARM',
     name: 'Supakorn',
     position: 'Web Development',
-    social: ['facebook', 'github', 'linkedin']
+    social: [
+      'https://www.facebook.com/rainstormza',
+      'https://www.linkedin.com/in/supakorn-thongtra-4a656377/',
+      'https://github.com/rainstormza'
+    ]
   },
   {
     img: '/static/team/Panupak.jpg',
     nickname: 'BIN',
     name: 'Panupak',
     position: 'Devops Development',
-    social: ['facebook', 'github', 'linkedin']
+    social: [
+      'https://www.facebook.com/profile.php?id=100019950422810',
+      'https://www.linkedin.com/in/panupak-wichaidit-a36413b1/',
+      'https://github.com/newnok6'
+    ]
   }
 ]
 

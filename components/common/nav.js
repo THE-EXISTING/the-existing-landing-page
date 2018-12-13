@@ -79,7 +79,7 @@ const AStyle = styled.div`
 const ContactButton = styled.button`
   cursor: pointer;
   font-size: 1.4rem;
-  font-family: 'avenirnext-medium';
+  font-family: ProductSans-Bold;
   width: 10rem;
   height: 2.8rem;
   color: #ffffff;
