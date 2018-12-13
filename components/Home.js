@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { scroller, Link } from 'react-scroll'
 
 const HomeContainer = styled.div`
   position: relative;
@@ -119,9 +120,24 @@ const ScrollDownContainer = styled.div`
   }
 `
 
+const ImgFlare = styled.img`
+  position: absolute;
+  left: 0;
+  opacity: 0.7;
+`
+
+const onHandleScrollTo = to => {
+  scroller.scrollTo(to, {
+    duration: 500,
+    delay: 0,
+    smooth: 'easeInOutQuad'
+  })
+}
+
 const Home = () => (
   <HomeContainer>
     <StarBGImg src="/static/image/star_bg.jpg" alt="" />
+    <ImgFlare src="/static/image/flare.png" />
     <ExistingContainer>
       <ExistingText>
         <ImgOverlay src="/static/Logo/EX_overlay.svg" alt="" />
@@ -135,7 +151,9 @@ const Home = () => (
         <ContactButton>CONTACT</ContactButton>
       </ButtonContainer>
       <ScrollDownContainer>
-        <img src="/static/Icon/Scroll_down.svg" alt="" />
+        <Link spy={true} to="vision" onClick={() => onHandleScrollTo('vision')}>
+          <img src="/static/Icon/Scroll_down.svg" alt="" />
+        </Link>
       </ScrollDownContainer>
     </ExistingContainer>
     <WorldBGImg src="/static/image/planet_compress.png" />

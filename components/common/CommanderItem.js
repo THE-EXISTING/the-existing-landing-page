@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 const CommanderItemContainer = styled.div`
   position: relative;
-  flex: 1;
+  width: 24rem;
+  box-sizing: border-box;
   padding: 2rem;
   margin: 2rem;
   display: flex;

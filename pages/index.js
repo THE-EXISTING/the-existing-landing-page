@@ -1,12 +1,15 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Element } from 'react-scroll'
-import Head from '../components/head'
-import Nav from '../components/nav'
+import Head from '../components/common/head'
+import Nav from '../components/common/nav'
 import Home from '../components/Home'
 import Vision from '../components/Vision'
 import Project from '../components/Project'
 import Commander from '../components/Commander'
+import Partnership from '../components/Partnership'
+import Blog from '../components/Blog'
+import Footer from '../components/common/footer'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -50,14 +53,13 @@ const GlobalStyle = createGlobalStyle`
     padding-bottom: 4.5px !important;
     border-bottom: 2px solid !important;
   }
+
 `
 const Index = () => (
   <div>
     <GlobalStyle />
     <Head title="Home" />
-    <Element name="nav">
-      <Nav />
-    </Element>
+    <Nav />
     <Element name="home">
       <Home />
     </Element>
@@ -70,6 +72,13 @@ const Index = () => (
     <Element name="commander">
       <Commander />
     </Element>
+    <Element name="partnership">
+      <Partnership />
+    </Element>
+    <Element name="blog">
+      <Blog />
+    </Element>
+    <Footer />
   </div>
 )
 

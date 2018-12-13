@@ -18,7 +18,7 @@ const DcenText = styled.div`
   align-items: center;
 `
 
-const ProductCommingSoon = styled.p`
+const ProductComingSoon = styled.p`
   font-size: 3.2rem;
   opacity: 0.6;
 `
@@ -46,7 +46,7 @@ function Project() {
           width="100%"
           style={{ margin: '10rem 0' }}
         />
-        <ProductCommingSoon>Product is Comming soon... </ProductCommingSoon>
+        <ProductComingSoon>Product is Coming soon... </ProductComingSoon>
       </ProjectContainer>
     </Layout>
   )
