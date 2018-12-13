@@ -23,8 +23,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'avenirnext-regular';
-    src: url('../static/font/avenirnext_regular.ttf');
+    font-family: 'ProductSans-Regular';
+    src: url('../static/font/ProductSans-Regular.ttf');
   }
 
   html {
