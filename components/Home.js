@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import { scroller, Link } from 'react-scroll'
+import media from 'styled-media-query'
+import { scroller } from 'react-scroll'
 
 const HomeContainer = styled.div`
   position: relative;
@@ -9,23 +10,21 @@ const HomeContainer = styled.div`
   overflow: hidden;
 `
 
-const StarBGImg = styled.img`
-  min-height: 100vh;
+const StarBGImg = styled.div`
   position: absolute;
-  left: 0;
-  right: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  background-image: url('../static/image/star_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   opacity: 0.3;
-  /* animation: MoveLeftRight 120s linear infinite;
 
-  @keyframes MoveLeftRight {
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-500px);
-    }
-  } */
+  ${media.lessThan('medium')`
+    opacity: 0.9;
+  `};
 `
 
 const WorldBGImg = styled.img`
@@ -57,10 +56,6 @@ const WorldBGImg = styled.img`
 `
 
 const ExistingContainer = styled.div`
-  position: relative;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,21 +74,39 @@ const ExistingText = styled.div`
   span {
     font-size: 2.4rem;
   }
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+
+    span {
+      font-size: 2rem;
+      margin: 1.2rem 0;
+    }
+  `};
 `
 
 const ImgOverlay = styled.img`
   position: absolute;
+  width: 140%;
+
+  ${media.lessThan('medium')`
+    display: none;
+  `};
 `
 
 const ButtonContainer = styled.div`
-  position: absolute;
-  margin-top: 14rem;
+  margin-top: 10rem;
+  z-index: 1;
+
+  ${media.lessThan('medium')`
+    margin-top: 4.8rem;
+  `};
 `
 
 const ContactButton = styled.button`
   cursor: pointer;
   font-size: 2rem;
-  font-family: ProductSans-Bold;
+  font-family: ProductSans-Regular;
   width: 20rem;
   height: 4.8rem;
   color: #ffffff;
@@ -107,7 +120,7 @@ const ScrollDownContainer = styled.div`
   bottom: 3.2rem;
   cursor: pointer;
   z-index: 2;
-  animation: MoveUpDown 1s infinite alternate;
+  animation: MoveUpDown 0.5s infinite alternate;
   opacity: 0.6;
 
   @keyframes MoveUpDown {
@@ -125,6 +138,10 @@ const ImgFlare = styled.img`
   left: -55%;
   top: -800%;
   opacity: 0.7;
+
+  ${media.lessThan('medium')`
+    display: none;
+  `};
 `
 
 const VerticalLine = styled.hr`
@@ -133,44 +150,73 @@ const VerticalLine = styled.hr`
   height: 2px;
   background-color: #ffffff;
   border: 0;
+
+  ${media.lessThan('medium')`
+    display: none;
+  `};
 `
 
 const onHandleScrollTo = to => {
   scroller.scrollTo(to, {
     duration: 500,
     delay: 0,
-    smooth: 'easeInOutQuad'
+    smooth: 'easeInOutQuad',
+    offset: -50
   })
 }
 
-const Home = () => (
-  <HomeContainer>
-    <StarBGImg src="/static/image/star_bg.jpg" alt="" />
-    <ExistingContainer>
-      <ExistingText>
-        <ImgOverlay src="/static/Logo/EX_overlay.svg" alt="" />
-        <div>
-          <ImgFlare src="/static/image/flare.png" />
-          <img src="/static/Logo/Existing_color.svg" alt="" />
-        </div>
-        <span style={{ padding: '0 2rem' }}>
-          <VerticalLine />
-        </span>
-        <span style={{ width: '300px' }}>
-          limit does <span style={{ color: '#88DBDE' }}>not</span> exist
-        </span>
-      </ExistingText>
-      <ButtonContainer>
-        <ContactButton>CONTACT</ContactButton>
-      </ButtonContainer>
-      <ScrollDownContainer>
-        <div onClick={() => onHandleScrollTo('vision')}>
-          <img src="/static/Icon/Scroll_down.svg" alt="" height="48" width="48" />
-        </div>
-      </ScrollDownContainer>
-    </ExistingContainer>
-    <WorldBGImg src="/static/image/planet_compress.png" />
-  </HomeContainer>
-)
+class Home extends Component {
+  state = {
+    isMobile: false
+  }
+
+  componentDidMount() {
+    this.handleCheckWindowSize()
+    window.addEventListener('resize', this.handleCheckWindowSize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleCheckWindowSize)
+  }
+
+  handleCheckWindowSize = () => {
+    if (window.innerWidth < 768 && !this.state.isMobile) {
+      console.log('55')
+      this.setState({ isMobile: true })
+    }
+  }
+
+  render() {
+    return (
+      <HomeContainer>
+        <StarBGImg />
+        <ExistingContainer>
+          <ExistingText>
+            <ImgOverlay src="/static/Logo/EX_overlay.svg" alt="" />
+            <div>
+              <ImgFlare src="/static/image/flare.png" />
+              <img src="/static/Logo/Existing_color.svg" alt="" />
+            </div>
+            <span style={{ padding: '0 2rem' }}>
+              <VerticalLine />
+            </span>
+            <span style={{ width: '300px' }}>
+              limit does <span style={{ color: '#88DBDE' }}>not</span> exist
+            </span>
+          </ExistingText>
+          <ButtonContainer>
+            <ContactButton>CONTACT</ContactButton>
+          </ButtonContainer>
+          <ScrollDownContainer>
+            <div onClick={() => onHandleScrollTo('vision')}>
+              <img src="/static/Icon/Scroll_down.svg" alt="" height="48" width="48" />
+            </div>
+          </ScrollDownContainer>
+        </ExistingContainer>
+        <WorldBGImg src="/static/image/planet_compress.png" />
+      </HomeContainer>
+    )
+  }
+}
 
 export default Home

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const Header = styled.p`
   display: inline-block;
@@ -16,6 +17,10 @@ const Header = styled.p`
     display: block;
     margin-top: 8px;
   }
+
+  ${media.lessThan('medium')`
+    font-size: 2rem;
+  `};
 `
 
 function HeaderText(props) {

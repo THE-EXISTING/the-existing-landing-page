@@ -100,7 +100,9 @@ class CommanderItem extends Component {
           <TeamImg src={img} isHover={isHover} />
           <FontAvenirContainer>
             <p style={{ fontSize: '1.6rem', marginBottom: '0' }}>{nickname}</p>
-            <p style={{ fontSize: '1.4rem', marginTop: '2px' }}>{name}</p>
+            <p style={{ fontSize: '1.4rem', marginTop: '2px', fontFamily: 'ProductSans-Regular' }}>
+              {name}
+            </p>
             <p style={{ fontSize: '1.6rem' }}>Co-founder</p>
           </FontAvenirContainer>
 

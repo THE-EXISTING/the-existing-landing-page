@@ -1,18 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const FooterContainer = styled.footer`
+  background-image: url('../static/image/footer.jpg');
+  height: 100%;
   position: relative;
   width: 100%;
   height: 256px;
   display: flex;
   align-items: center;
-`
 
-const FooterBG = styled.img`
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  ${media.lessThan('medium')`
+    height: auto;
+  `};
 `
 
 const FooterTextContainer = styled.div`
@@ -23,6 +24,10 @@ const FooterTextContainer = styled.div`
   margin: 0 auto;
   z-index: 2;
   padding: 0 1.6rem;
+
+  ${media.lessThan('medium')`
+    padding: 2.8rem 2rem;
+  `};
 `
 
 const FooterContent = styled.div`
@@ -34,18 +39,27 @@ const AddressContainer = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid;
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+  `};
 `
 
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  ${media.lessThan('medium')`
+    margin-top: 2.2rem;
+    align-items: flex-start;
+  `};
 `
 
 const ContactButton = styled.button`
   cursor: pointer;
   font-size: 1.4rem;
-  font-family: ProductSans-Bold;
+  font-family: ProductSans-Regular;
   width: 10rem;
   height: 2.8rem;
   color: #ffffff;
@@ -54,13 +68,17 @@ const ContactButton = styled.button`
 `
 
 const ContactInfo = styled.div`
-  font-family: ProductSans-Bold;
+  font-family: ProductSans-Regular;
   font-size: 2rem;
   display: flex;
 
   p {
     margin-left: 1.2rem;
   }
+
+  ${media.lessThan('medium')`
+    font-size: 1.6rem;
+  `};
 `
 
 const CopyRightsContainer = styled.div`
@@ -68,12 +86,18 @@ const CopyRightsContainer = styled.div`
   font-size: 1.4rem;
   display: flex;
   justify-content: space-between;
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+    img {
+      align-self: flex-end;
+    }
+  `};
 `
 
 function footer() {
   return (
     <FooterContainer>
-      <FooterBG src="/static/image/footer.jpg" alt="" />
       <FooterTextContainer>
         <img src="/static/Logo/EX.svg" alt="" />
         <FooterContent>

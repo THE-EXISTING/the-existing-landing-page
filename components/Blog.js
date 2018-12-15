@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from './common/Layout'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const BlogContainer = styled.div`
   display: flex;
@@ -25,6 +26,10 @@ const Text = styled.div`
   font-size: 3.2rem;
   margin: 7.2rem 0 0 0;
   text-align: center;
+
+  ${media.lessThan('medium')`
+    font-size: 2.4rem;
+  `};
 `
 
 function Blog() {

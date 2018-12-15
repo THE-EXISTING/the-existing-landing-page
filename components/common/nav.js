@@ -79,12 +79,16 @@ const AStyle = styled.div`
 const ContactButton = styled.button`
   cursor: pointer;
   font-size: 1.4rem;
-  font-family: ProductSans-Bold;
+  font-family: ProductSans-Regular;
   width: 10rem;
   height: 2.8rem;
   color: #ffffff;
   background-color: transparent;
   border-radius: 5px;
+
+  ${media.lessThan('medium')`
+    display: none;
+  `};
 `
 
 class Nav extends Component {
@@ -93,6 +97,7 @@ class Nav extends Component {
   state = {
     isScrollDown: false
   }
+
   onHandleNavbarScroll = () => {
     const { isScrollDown } = this.state
     const navOffsetTop = this.navRef.current.offsetTop
@@ -113,6 +118,7 @@ class Nav extends Component {
   }
 
   componentDidMount() {
+    this.onHandleNavbarScroll()
     window.addEventListener('scroll', this.onHandleNavbarScroll)
   }
   componentWillUnmount() {
@@ -175,9 +181,7 @@ class Nav extends Component {
                 </Link>
               </AStyle>
 
-              <AStyle>
-                <ContactButton>CONTACT</ContactButton>
-              </AStyle>
+              <ContactButton>CONTACT</ContactButton>
             </NavStyled>
           </HeaderStyle>
         </HeaderContainer>
