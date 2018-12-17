@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import Layout from './common/Layout'
 import HeaderText from './common/HeaderText'
 import CommanderItem from './common/CommanderItem'
@@ -17,6 +18,10 @@ const ImageOverlay = styled.img`
   opacity: 0.03;
   bottom: 0;
   right: -220px;
+
+  ${media.lessThan('medium')`
+    display: none;
+  `};
 `
 
 const team = [

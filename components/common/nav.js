@@ -20,11 +20,16 @@ const HeaderStyle = styled.header`
   margin: 0 auto;
   transition: all 0.3s;
   will-change: transition;
+  padding: ${({ isScrollDown }) => (isScrollDown ? '2rem 1.6rem' : '3.6rem 1.6rem')};
 
   ${media.lessThan('large')`
     padding-left: max(2rem, env(safe-area-inset-left))  !important;
     padding-right: max(2rem, env(safe-area-inset-right)) !important;
     box-sizing: border-box;
+  `};
+
+  ${media.lessThan('medium')`
+    padding: 1.8rem 1.6rem;
   `};
 `
 
@@ -45,6 +50,17 @@ const NavStyled = styled.nav`
       display: none;
     }
   `};
+`
+
+const NavStyledMobile = styled.nav`
+  ${media.greaterThan('medium')`
+    display: none;
+  `};
+  display: flex;
+  padding: 2rem 1rem;
+  /* width: 100%;
+  overflow-x: scroll;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent); */
 `
 
 const AStyle = styled.div`
@@ -74,17 +90,29 @@ const AStyle = styled.div`
       border-bottom: 2px solid;
     }
   }
+
+  ${media.lessThan('medium')`
+    flex: 1;
+    /* padding: 0 3rem; */
+
+    a {
+      padding-bottom: 1.4rem;
+    }
+      
+  `};
 `
 
 const ContactButton = styled.button`
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-family: ProductSans-Regular;
   width: 10rem;
   height: 2.8rem;
   color: #ffffff;
   background-color: transparent;
   border-radius: 5px;
+  border-width: 2px;
+  letter-spacing: 1.5px;
 
   ${media.lessThan('medium')`
     display: none;
@@ -95,7 +123,14 @@ class Nav extends Component {
   navRef = React.createRef()
 
   state = {
-    isScrollDown: false
+    isScrollDown: false,
+    isMobile: false
+  }
+
+  handleCheckWindowSize = () => {
+    if (window.innerWidth < 768 && !this.state.isMobile) {
+      this.setState({ isMobile: true })
+    }
   }
 
   onHandleNavbarScroll = () => {
@@ -113,16 +148,20 @@ class Nav extends Component {
     scroller.scrollTo(to, {
       duration: 500,
       delay: 0,
-      smooth: 'easeInOutQuad'
+      smooth: 'easeInOutQuad',
+      offset: this.state.isMobile ? -115 : 0
     })
   }
 
   componentDidMount() {
     this.onHandleNavbarScroll()
     window.addEventListener('scroll', this.onHandleNavbarScroll)
+    this.handleCheckWindowSize()
+    window.addEventListener('resize', this.handleCheckWindowSize)
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onHandleNavbarScroll)
+    window.removeEventListener('resize', this.handleCheckWindowSize)
   }
 
   render() {
@@ -131,11 +170,7 @@ class Nav extends Component {
     return (
       <Fragment>
         <HeaderContainer ref={this.navRef} className={classHide}>
-          <HeaderStyle
-            style={
-              this.state.isScrollDown ? { padding: '2rem 1.6rem' } : { padding: '3.6rem 1.6rem' }
-            }
-          >
+          <HeaderStyle isScrollDown={this.state.isScrollDown}>
             <div>
               <LogoStyle />
             </div>
@@ -184,6 +219,50 @@ class Nav extends Component {
               <ContactButton>CONTACT</ContactButton>
             </NavStyled>
           </HeaderStyle>
+          <NavStyledMobile>
+            <AStyle>
+              <Link
+                spy={true}
+                to="home"
+                onClick={() => this.onHandleScrollTo('home')}
+                offset={-115}
+              >
+                Home
+              </Link>
+            </AStyle>
+            <AStyle>
+              <Link
+                spy={true}
+                to="vision"
+                onClick={() => this.onHandleScrollTo('vision')}
+                offset={-115}
+              >
+                Vision
+              </Link>
+            </AStyle>
+            <AStyle>
+              <Link
+                spy={true}
+                to="project"
+                onClick={() => this.onHandleScrollTo('project')}
+                offset={-115}
+              >
+                Project
+              </Link>
+            </AStyle>
+            <AStyle>
+              <Link
+                spy={true}
+                to="commander"
+                onClick={() => this.onHandleScrollTo('commander')}
+                offset={-115}
+              >
+                Commander
+              </Link>
+            </AStyle>
+
+            <ContactButton>CONTACT</ContactButton>
+          </NavStyledMobile>
         </HeaderContainer>
       </Fragment>
     )

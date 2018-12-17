@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import media from 'styled-media-query'
 import { Element } from 'react-scroll'
 import Head from '../components/common/head'
 import Nav from '../components/common/nav'
@@ -47,6 +48,10 @@ const GlobalStyle = createGlobalStyle`
     opacity: 1 !important;
     padding-bottom: 4.5px !important;
     border-bottom: 2px solid !important;
+
+    ${media.lessThan('medium')`
+      padding-bottom: 14px !important;
+    `};
   }
 
 `

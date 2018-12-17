@@ -71,6 +71,7 @@ const ContactInfo = styled.div`
   font-family: ProductSans-Regular;
   font-size: 2rem;
   display: flex;
+  letter-spacing: 1.5px;
 
   p {
     margin-left: 1.2rem;

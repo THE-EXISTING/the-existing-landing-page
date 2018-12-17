@@ -113,6 +113,7 @@ const ContactButton = styled.button`
   background-color: transparent;
   border-radius: 5px;
   border: 2px solid;
+  letter-spacing: 3px;
 `
 
 const ScrollDownContainer = styled.div`
@@ -156,15 +157,6 @@ const VerticalLine = styled.hr`
   `};
 `
 
-const onHandleScrollTo = to => {
-  scroller.scrollTo(to, {
-    duration: 500,
-    delay: 0,
-    smooth: 'easeInOutQuad',
-    offset: -50
-  })
-}
-
 class Home extends Component {
   state = {
     isMobile: false
@@ -181,9 +173,17 @@ class Home extends Component {
 
   handleCheckWindowSize = () => {
     if (window.innerWidth < 768 && !this.state.isMobile) {
-      console.log('55')
       this.setState({ isMobile: true })
     }
+  }
+
+  onHandleScrollTo = to => {
+    scroller.scrollTo(to, {
+      duration: 500,
+      delay: 0,
+      smooth: 'easeInOutQuad',
+      offset: this.state.isMobile ? -115 : -60
+    })
   }
 
   render() {
@@ -208,7 +208,7 @@ class Home extends Component {
             <ContactButton>CONTACT</ContactButton>
           </ButtonContainer>
           <ScrollDownContainer>
-            <div onClick={() => onHandleScrollTo('vision')}>
+            <div onClick={() => this.onHandleScrollTo('vision')}>
               <img src="/static/Icon/Scroll_down.svg" alt="" height="48" width="48" />
             </div>
           </ScrollDownContainer>

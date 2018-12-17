@@ -31,6 +31,7 @@ const TeamImg = styled.img`
 
 const FontAvenirContainer = styled.div`
   font-family: ProductSans-Bold;
+  letter-spacing: 1px;
 `
 
 const ImgOverlay = styled.img`
