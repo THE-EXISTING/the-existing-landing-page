@@ -2,29 +2,28 @@ import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
 
-const defaultDescription = ''
-const defaultOGURL = ''
-const defaultOGImage = ''
+const defaultTitle = 'The Existing'
+const defaultDescription =
+  'We believe that technologies are the key for people’s better life We have established an Existing Company for creating the challenging and very tough projects that will be the most beneficial to our users.'
+const defaultOGURL = 'https://the-existing.netlify.com/'
+const defaultOGImage = 'https://the-existing.netlify.com/static/Logo/Existing_color.svg'
 
 const Head = props => (
   <NextHead>
     <meta charSet="UTF-8" />
-    <title>{props.title || ''}</title>
+    <title>{props.title || defaultTitle}</title>
+    <meta name="description" content={props.description || defaultDescription} />
     <meta
-      name="description"
-      content={props.description || defaultDescription}
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
-    <link rel="apple-touch-icon" href="/static/touch-icon.png" />
-    <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
-    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="icon" sizes="192x192" href="/static/ex_favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/ex_favicon.ico" />
+    <link rel="mask-icon" href="/static/ex_favicon.ico" color="#1F1F1F" />
+    <link rel="icon" href="/static/ex_favicon.ico" />
     <meta property="og:url" content={props.url || defaultOGURL} />
-    <meta property="og:title" content={props.title || ''} />
-    <meta
-      property="og:description"
-      content={props.description || defaultDescription}
-    />
+    <meta property="og:title" content={props.title || defaultTitle} />
+    <meta property="og:description" content={props.description || defaultDescription} />
     <meta name="twitter:site" content={props.url || defaultOGURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={props.ogImage || defaultOGImage} />

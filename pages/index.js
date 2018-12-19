@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components'
 import media from 'styled-media-query'
 import { Element } from 'react-scroll'
@@ -11,6 +12,8 @@ import Commander from '../components/Commander'
 import Partnership from '../components/Partnership'
 import Blog from '../components/Blog'
 import Footer from '../components/common/footer'
+// import 'slick-carousel/slick/slick-theme.css'
+// import 'slick-carousel/slick/slick.css'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -54,12 +57,52 @@ const GlobalStyle = createGlobalStyle`
     `};
   }
 
+  .slick-dots {
+    li {
+      margin: 0;
+    }
+
+    button {
+      &::before {
+        color: white !important;
+      }
+    }
+  }
+
+  .slick-active {
+    button {
+      &::before {
+        font-size: 10px !important;
+        color: white !important;
+      }
+    }
+  }
+
+  .border-hover > .slick-list > .slick-track > .slick-active > div > .active-border {
+    box-shadow: 0 0 0 2px #d8d8d8;
+    border-radius: 4px;
+  }
+
 `
 const Index = () => (
   <div>
+    <Header>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        charSet="UTF-8"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
+    </Header>
     <GlobalStyle />
-    <Head title="Home" />
+    <Head />
     <Nav />
+
     <Element name="home">
       <Home />
     </Element>

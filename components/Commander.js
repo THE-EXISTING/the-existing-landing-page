@@ -4,6 +4,20 @@ import media from 'styled-media-query'
 import Layout from './common/Layout'
 import HeaderText from './common/HeaderText'
 import CommanderItem from './common/CommanderItem'
+import Slider from 'react-slick'
+
+const settings = {
+  dots: true,
+  arrows: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  swipeToSlide: true,
+  centerMode: true,
+  centerPadding: 0,
+  className: 'border-hover'
+}
 
 const CommnaderContainer = styled.div`
   text-align: center;
@@ -11,11 +25,24 @@ const CommnaderContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+  ${media.lessThan('medium')`
+    display: none;
+  `};
+`
+
+const CommanderContainerMobile = styled.div`
+  display: none;
+  text-align: center;
+
+  ${media.lessThan('medium')`
+    display: block;
+  `};
 `
 
 const ImageOverlay = styled.img`
   position: absolute;
-  opacity: 0.03;
+  opacity: 1;
   bottom: 0;
   right: -220px;
 
@@ -69,7 +96,14 @@ function Commander() {
           <CommanderItem key={item.name} {...item} />
         ))}
       </CommnaderContainer>
-      <ImageOverlay src="/static/Icon/Mascot.svg" alt="" />
+      <CommanderContainerMobile>
+        <Slider {...settings}>
+          {team.map(item => (
+            <CommanderItem key={item.name} {...item} />
+          ))}
+        </Slider>
+      </CommanderContainerMobile>
+      <ImageOverlay src="/static/Icon/Mascot_bg.svg" alt="" />
     </Layout>
   )
 }

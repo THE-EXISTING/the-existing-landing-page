@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const CommanderItemContainer = styled.div`
   position: relative;
@@ -12,6 +13,12 @@ const CommanderItemContainer = styled.div`
   overflow: hidden;
   transition: all 0.3s;
   will-change: transition;
+  z-index: 2;
+
+  ${media.lessThan('medium')`
+    margin: 5px auto;
+    height: 443px;
+  `};
 
   &:hover {
     box-shadow: 0 0 0 2px #d8d8d8;
@@ -40,6 +47,14 @@ const ImgOverlay = styled.img`
   right: -100px;
   bottom: 0;
   opacity: 0.02;
+`
+
+const ImgOverlayMobile = styled(ImgOverlay)`
+  display: none;
+
+  ${media.lessThan('medium')`
+    display: block;
+  `};
 `
 
 const SocialContainer = styled.div`
@@ -94,6 +109,7 @@ class CommanderItem extends Component {
 
     return (
       <CommanderItemContainer
+        className="active-border"
         onMouseOver={this.handleOnMouseHover}
         onMouseLeave={this.handleOnMouseLeave}
       >
@@ -104,7 +120,7 @@ class CommanderItem extends Component {
             <p style={{ fontSize: '1.4rem', marginTop: '2px', fontFamily: 'ProductSans-Regular' }}>
               {name}
             </p>
-            <p style={{ fontSize: '1.6rem' }}>Co-founder</p>
+            <p style={{ fontSize: '1.6rem', letterSpacing: '1.5px' }}>Co-founder</p>
           </FontAvenirContainer>
 
           <p style={{ opacity: '0.7' }}>
@@ -125,6 +141,7 @@ class CommanderItem extends Component {
           })}
         </SocialContainer>
         {isHover && <ImgOverlay src="/static/Icon/Mascot.svg" alt="" />}
+        <ImgOverlayMobile src="/static/Icon/Mascot.svg" alt="" />
       </CommanderItemContainer>
     )
   }

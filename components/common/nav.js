@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import { scroller, Link } from 'react-scroll'
+import ContactButton from './ContactButton'
 
 const HeaderContainer = styled.div`
   font-family: andale-mono;
@@ -30,6 +31,9 @@ const HeaderStyle = styled.header`
 
   ${media.lessThan('medium')`
     padding: 1.8rem 1.6rem;
+
+    padding-left: calc(max(22px, env(safe-area-inset-left)));
+    padding-right: calc(max(22px, env(safe-area-inset-right)));
   `};
 `
 
@@ -58,9 +62,8 @@ const NavStyledMobile = styled.nav`
   `};
   display: flex;
   padding: 2rem 1rem;
-  /* width: 100%;
   overflow-x: scroll;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent); */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10px, black 90%, transparent);
 `
 
 const AStyle = styled.div`
@@ -92,30 +95,13 @@ const AStyle = styled.div`
   }
 
   ${media.lessThan('medium')`
-    flex: 1;
-    /* padding: 0 3rem; */
+    /* flex: 1; */
+    padding: 0 2rem;
 
     a {
       padding-bottom: 1.4rem;
     }
       
-  `};
-`
-
-const ContactButton = styled.button`
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-family: ProductSans-Regular;
-  width: 10rem;
-  height: 2.8rem;
-  color: #ffffff;
-  background-color: transparent;
-  border-radius: 5px;
-  border-width: 2px;
-  letter-spacing: 1.5px;
-
-  ${media.lessThan('medium')`
-    display: none;
   `};
 `
 
@@ -181,6 +167,7 @@ class Nav extends Component {
                   spy={true}
                   to="home"
                   onClick={() => this.onHandleScrollTo('home')}
+                  offset={-115}
                 >
                   Home
                 </Link>
@@ -201,6 +188,7 @@ class Nav extends Component {
                   spy={true}
                   to="project"
                   onClick={() => this.onHandleScrollTo('project')}
+                  offset={-115}
                 >
                   Project
                 </Link>
@@ -211,6 +199,7 @@ class Nav extends Component {
                   spy={true}
                   to="commander"
                   onClick={() => this.onHandleScrollTo('commander')}
+                  offset={-115}
                 >
                   Commander
                 </Link>

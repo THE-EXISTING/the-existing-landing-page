@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import ContactButton from './ContactButton'
 
 const FooterContainer = styled.footer`
   background-image: url('../static/image/footer.jpg');
@@ -56,17 +57,6 @@ const ContactContainer = styled.div`
   `};
 `
 
-const ContactButton = styled.button`
-  cursor: pointer;
-  font-size: 1.4rem;
-  font-family: ProductSans-Regular;
-  width: 10rem;
-  height: 2.8rem;
-  color: #ffffff;
-  background-color: transparent;
-  border-radius: 5px;
-`
-
 const ContactInfo = styled.div`
   font-family: ProductSans-Regular;
   font-size: 2rem;
@@ -96,6 +86,11 @@ const CopyRightsContainer = styled.div`
   `};
 `
 
+const ContactLink = styled.a`
+  text-decoration: none;
+  color: #ffffff;
+`
+
 function footer() {
   return (
     <FooterContainer>
@@ -111,13 +106,16 @@ function footer() {
               <ContactButton>CONTACT</ContactButton>
               <ContactInfo>
                 <img src="/static/Icon/Email.svg" alt="" />
-                <p>contact@existing.io</p>
+
+                <ContactLink href="mailto:contact@existing.co?subject=Put your subject here...">
+                  <p>contact@existing.io</p>
+                </ContactLink>
               </ContactInfo>
             </ContactContainer>
           </AddressContainer>
           <CopyRightsContainer>
             <p style={{ opacity: '0.7' }}>© 2020 Existing company. All Rights Reserved</p>
-            <img src="/static/Icon/IPFS.svg" alt="" />
+            {/* <img src="/static/Icon/IPFS.svg" alt="" /> */}
           </CopyRightsContainer>
         </FooterContent>
       </FooterTextContainer>

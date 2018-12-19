@@ -95,6 +95,7 @@ const ImgOverlay = styled.img`
 `
 
 const ButtonContainer = styled.div`
+  position: relative;
   margin-top: 10rem;
   z-index: 1;
 
@@ -103,17 +104,36 @@ const ButtonContainer = styled.div`
   `};
 `
 
-const ContactButton = styled.button`
-  cursor: pointer;
+// const ContactButton = styled.button`
+//   cursor: pointer;
+//   font-size: 2rem;
+//   font-family: ProductSans-Regular;
+//   width: 20rem;
+//   height: 4.8rem;
+//   color: #ffffff;
+//   background-color: transparent;
+//   border-radius: 5px;
+//   border: 2px solid;
+//   letter-spacing: 3px;
+// `
+
+const ContactButtonSvg = styled.div`
+  background-image: url('../static/Icon/Button.svg');
+  width: 200px;
+  height: 48px;
   font-size: 2rem;
   font-family: ProductSans-Regular;
-  width: 20rem;
-  height: 4.8rem;
-  color: #ffffff;
-  background-color: transparent;
-  border-radius: 5px;
-  border: 2px solid;
   letter-spacing: 3px;
+  cursor: pointer;
+  color: #ffffff;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const ScrollDownContainer = styled.div`
@@ -205,7 +225,9 @@ class Home extends Component {
             </span>
           </ExistingText>
           <ButtonContainer>
-            <ContactButton>CONTACT</ContactButton>
+            <ContactButtonSvg>
+              <div>CONTACT</div>
+            </ContactButtonSvg>
           </ButtonContainer>
           <ScrollDownContainer>
             <div onClick={() => this.onHandleScrollTo('vision')}>

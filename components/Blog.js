@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Layout from './common/Layout'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+// import Typed from 'react-typed'
+import Typed from 'typed.js'
 
 const BlogContainer = styled.div`
   display: flex;
@@ -19,6 +21,10 @@ const DcenMedium = styled.div`
 
   div {
     margin: 2.4rem 4.6rem;
+
+    ${media.lessThan('medium')`
+      margin: 1.4rem 2.6rem;
+    `};
   }
 `
 
@@ -32,28 +38,56 @@ const Text = styled.div`
   `};
 `
 
-function Blog() {
-  function openNewTab(url) {
+class Blog extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    const options = {
+      strings: ['Limits do not exist.'],
+      smartBackspace: true,
+      loop: false,
+      backSpeed: 50
+    }
+
+    this.typed = new Typed(this.el, options)
+  }
+
+  componentWillUnmount() {
+    this.typed.destroy()
+  }
+
+  openNewTab = url => {
     window.open(url, '_blank')
   }
 
-  return (
-    <Layout color="black">
-      <BlogContainer>
-        <DcenMedium onClick={() => openNewTab('https://medium.com/dcen')}>
-          <div>
-            <img src="/static/Icon/Medium_DCEN.svg" alt="" />
-          </div>
-        </DcenMedium>
-        <DcenMedium onClick={() => openNewTab('https://blog.nextzy.me/')}>
-          <div style={{ padding: '4.5px' }}>
-            <img src="/static/Icon/Medium_Nextzy.svg" alt="" />
-          </div>
-        </DcenMedium>
-      </BlogContainer>
-      <Text>Limits do not exist</Text>
-    </Layout>
-  )
+  render() {
+    return (
+      <Layout color="black">
+        <BlogContainer>
+          <DcenMedium onClick={() => this.openNewTab('https://medium.com/dcen')}>
+            <div>
+              <img src="/static/Icon/Medium_DCEN.svg" alt="" />
+            </div>
+          </DcenMedium>
+          <DcenMedium onClick={() => this.openNewTab('https://blog.nextzy.me/')}>
+            <div style={{ padding: '4.5px' }}>
+              <img src="/static/Icon/Medium_Nextzy.svg" alt="" />
+            </div>
+          </DcenMedium>
+        </BlogContainer>
+        <Text>
+          <span
+            style={{ whiteSpace: 'pre' }}
+            ref={el => {
+              this.el = el
+            }}
+          />
+        </Text>
+      </Layout>
+    )
+  }
 }
 
 export default Blog
