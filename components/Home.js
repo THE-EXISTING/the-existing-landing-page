@@ -201,7 +201,7 @@ class Home extends Component {
               <VerticalLine />
             </span>
             <span style={{ width: '300px' }}>
-              limit does <span style={{ color: '#88DBDE' }}>not</span> exist
+              limits do <span style={{ color: '#88DBDE' }}>not</span> exist
             </span>
           </ExistingText>
           <ButtonContainer>

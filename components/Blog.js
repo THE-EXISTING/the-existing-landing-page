@@ -51,7 +51,7 @@ function Blog() {
           </div>
         </DcenMedium>
       </BlogContainer>
-      <Text>Limit does not exist</Text>
+      <Text>Limits do not exist</Text>
     </Layout>
   )
 }
