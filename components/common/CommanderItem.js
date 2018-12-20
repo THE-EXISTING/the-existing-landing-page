@@ -32,8 +32,12 @@ const TeamImg = styled.img`
   border-radius: 50%;
   border: 4px solid white;
   margin: auto;
-  /* filter: grayscale(100%); */
+  transition: all 0.3s;
   filter: ${props => (props.isHover ? '' : 'grayscale(50%)')};
+
+  ${media.lessThan('medium')`
+    filter: ${props => (props.activeSlide ? 'grayscale(0%)' : 'grayscale(50%)')};
+  `};
 `
 
 const FontAvenirContainer = styled.div`
@@ -70,6 +74,12 @@ const ImgSocial = styled.img`
   margin: 0.5rem;
   opacity: 0.34;
   cursor: pointer;
+  transition: all 0.3s;
+  will-change: transition;
+
+  &:hover {
+    opacity: 1;
+  }
 `
 class CommanderItem extends Component {
   state = {
@@ -104,7 +114,7 @@ class CommanderItem extends Component {
   }
 
   render() {
-    const { img, nickname, name, position, social } = this.props
+    const { img, nickname, name, position, social, activeSlide } = this.props
     const { isHover } = this.state
 
     return (
@@ -114,7 +124,7 @@ class CommanderItem extends Component {
         onMouseLeave={this.handleOnMouseLeave}
       >
         <div>
-          <TeamImg src={img} isHover={isHover} />
+          <TeamImg src={img} isHover={isHover} activeSlide={activeSlide} />
           <FontAvenirContainer>
             <p style={{ fontSize: '1.6rem', marginBottom: '0' }}>{nickname}</p>
             <p style={{ fontSize: '1.4rem', marginTop: '2px', fontFamily: 'ProductSans-Regular' }}>

@@ -104,19 +104,6 @@ const ButtonContainer = styled.div`
   `};
 `
 
-// const ContactButton = styled.button`
-//   cursor: pointer;
-//   font-size: 2rem;
-//   font-family: ProductSans-Regular;
-//   width: 20rem;
-//   height: 4.8rem;
-//   color: #ffffff;
-//   background-color: transparent;
-//   border-radius: 5px;
-//   border: 2px solid;
-//   letter-spacing: 3px;
-// `
-
 const ContactButtonSvg = styled.div`
   background-image: url('../static/Icon/Button.svg');
   width: 200px;

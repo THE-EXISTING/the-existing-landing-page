@@ -143,7 +143,11 @@ function Project() {
           <br /> All of these is an open source project of OmiseGO.
         </PlasmaQuote>
         <BorderContainer>
-          <div>
+          <div
+            onClick={() => {
+              window.open('https://github.com/omisego', '_blank')
+            }}
+          >
             <img src="/static/Icon/Omisego.svg" alt="" width="156px" height="48px" />
           </div>
         </BorderContainer>

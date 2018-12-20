@@ -38,6 +38,7 @@ const HeaderStyle = styled.header`
 `
 
 const LogoStyle = styled.div`
+  cursor: pointer;
   width: 5rem;
   height: 2.4rem;
   background-image: url('/static/Logo/EX_color.svg');
@@ -157,7 +158,7 @@ class Nav extends Component {
       <Fragment>
         <HeaderContainer ref={this.navRef} className={classHide}>
           <HeaderStyle isScrollDown={this.state.isScrollDown}>
-            <div>
+            <div onClick={() => this.onHandleScrollTo('home')}>
               <LogoStyle />
             </div>
             <NavStyled>

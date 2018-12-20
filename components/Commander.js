@@ -1,23 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Layout from './common/Layout'
 import HeaderText from './common/HeaderText'
 import CommanderItem from './common/CommanderItem'
 import Slider from 'react-slick'
-
-const settings = {
-  dots: true,
-  arrows: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  swipeToSlide: true,
-  centerMode: true,
-  centerPadding: 0,
-  className: 'border-hover'
-}
 
 const CommnaderContainer = styled.div`
   text-align: center;
@@ -87,25 +74,50 @@ const team = [
   }
 ]
 
-function Commander() {
-  return (
-    <Layout color="black">
-      <HeaderText>Commander</HeaderText>
-      <CommnaderContainer>
-        {team.map(item => (
-          <CommanderItem key={item.name} {...item} />
-        ))}
-      </CommnaderContainer>
-      <CommanderContainerMobile>
-        <Slider {...settings}>
+class Commander extends Component {
+  state = {
+    activeSlide: 0
+  }
+
+  render() {
+    const settings = {
+      dots: true,
+      arrows: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      swipeToSlide: true,
+      centerMode: true,
+      centerPadding: 0,
+      className: 'border-hover',
+      afterChange: current => {
+        this.setState({ activeSlide: current })
+      }
+    }
+    return (
+      <Layout color="black">
+        <HeaderText>Commander</HeaderText>
+        <CommnaderContainer>
           {team.map(item => (
             <CommanderItem key={item.name} {...item} />
           ))}
-        </Slider>
-      </CommanderContainerMobile>
-      <ImageOverlay src="/static/Icon/Mascot_bg.svg" alt="" />
-    </Layout>
-  )
+        </CommnaderContainer>
+        <CommanderContainerMobile>
+          <Slider {...settings}>
+            {team.map((item, index) => (
+              <CommanderItem
+                key={item.name}
+                {...item}
+                activeSlide={index === this.state.activeSlide}
+              />
+            ))}
+          </Slider>
+        </CommanderContainerMobile>
+        <ImageOverlay src="/static/Icon/Mascot_bg.svg" alt="" />
+      </Layout>
+    )
+  }
 }
 
 export default Commander

@@ -78,6 +78,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .slick-list {
+    padding-bottom: 24px !important;
+  }
+
   .border-hover > .slick-list > .slick-track > .slick-active > div > .active-border {
     box-shadow: 0 0 0 2px #d8d8d8;
     border-radius: 4px;
