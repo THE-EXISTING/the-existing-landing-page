@@ -1,0 +1,16 @@
+{
+  "name": "The Existing",
+  "short_name": "The Existing",
+  "description": "The existing landing page Progressive Web App built using Next.js",
+  "icons": [
+    {
+      "src": "/static/favicon.ico",
+      "sizes": "1024x1024",
+      "type": "image/ico"
+    }
+  ],
+  "theme_color": "#242424",
+  "background_color": "#242424",
+  "start_url": "/",
+  "display": "standalone"
+}

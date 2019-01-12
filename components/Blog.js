@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Layout from './common/Layout'
 import styled from 'styled-components'
 import media from 'styled-media-query'
-// import Typed from 'react-typed'
 import Typed from 'typed.js'
 
 const BlogContainer = styled.div`
@@ -16,8 +15,12 @@ const DcenMedium = styled.div`
   cursor: pointer;
   margin: 5rem 3.4rem 0 3.4rem;
   border: 2px solid rgba(216, 216, 216, 0.34);
-
   border-radius: 10px;
+  transition: all 0.3s;
+
+  &:hover {
+    border: 2px solid #ffffff;
+  }
 
   div {
     margin: 2.4rem 4.6rem;
@@ -34,7 +37,7 @@ const Text = styled.div`
   text-align: center;
 
   ${media.lessThan('medium')`
-    font-size: 2.4rem;
+    font-size: 2rem;
   `};
 `
 
@@ -45,10 +48,11 @@ class Blog extends Component {
 
   componentDidMount() {
     const options = {
-      strings: ['Limits do not exist.'],
+      strings: ['Make it existing by <br/> exiting the limitations.'],
       smartBackspace: true,
       loop: false,
-      backSpeed: 50
+      backSpeed: 50,
+      typeSpeed: 30
     }
 
     this.typed = new Typed(this.el, options)
@@ -73,7 +77,7 @@ class Blog extends Component {
           </DcenMedium>
           <DcenMedium onClick={() => this.openNewTab('https://blog.nextzy.me/')}>
             <div style={{ padding: '4.5px' }}>
-              <img src="/static/Icon/Medium_Nextzy.svg" alt="" />
+              <img src="/static/Icon/Medium_NEXTZY.svg" alt="" />
             </div>
           </DcenMedium>
         </BlogContainer>

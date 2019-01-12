@@ -12,6 +12,11 @@ const HeaderContainer = styled.div`
   z-index: 200;
   transition: all 0.5s ease;
   will-change: transition;
+
+  ${media.lessThan('medium')`
+    position: absolute;
+    background-color: #1f1f1f;
+  `};
 `
 
 const HeaderStyle = styled.header`
@@ -61,10 +66,13 @@ const NavStyledMobile = styled.nav`
   ${media.greaterThan('medium')`
     display: none;
   `};
+
   display: flex;
   padding: 2rem 1rem;
   overflow-x: scroll;
   -webkit-mask-image: linear-gradient(to right, transparent, black 10px, black 90%, transparent);
+  z-index: 999;
+  background-color: #1f1f1f;
 `
 
 const AStyle = styled.div`
@@ -89,10 +97,12 @@ const AStyle = styled.div`
     transition: all 0.3s;
     will-change: transition;
 
-    &:hover {
-      opacity: 1;
-      border-bottom: 2px solid;
-    }
+    ${media.greaterThan('medium')`
+      &:hover {
+        opacity: 1;
+        border-bottom: 2px solid;
+      }
+    `};
   }
 
   ${media.lessThan('medium')`
@@ -111,7 +121,8 @@ class Nav extends Component {
 
   state = {
     isScrollDown: false,
-    isMobile: false
+    isMobile: false,
+    isSticky: false
   }
 
   handleCheckWindowSize = () => {
@@ -121,13 +132,19 @@ class Nav extends Component {
   }
 
   onHandleNavbarScroll = () => {
-    const { isScrollDown } = this.state
+    const { isScrollDown, isSticky } = this.state
     const navOffsetTop = this.navRef.current.offsetTop
 
     if (window.scrollY > navOffsetTop && !isScrollDown) {
       this.setState({ isScrollDown: true })
     } else if (window.scrollY <= navOffsetTop && isScrollDown) {
       this.setState({ isScrollDown: false })
+    }
+
+    if (window.pageYOffset >= 60 && !isSticky) {
+      this.setState({ isSticky: true })
+    } else if (window.pageYOffset <= 60 && isSticky) {
+      this.setState({ isSticky: false })
     }
   }
 
@@ -136,7 +153,7 @@ class Nav extends Component {
       duration: 500,
       delay: 0,
       smooth: 'easeInOutQuad',
-      offset: this.state.isMobile ? -115 : 0
+      offset: this.state.isMobile ? -55 : -60
     })
   }
 
@@ -152,7 +169,9 @@ class Nav extends Component {
   }
 
   render() {
-    const classHide = this.state.isScrollDown ? 'scroll' : ''
+    const { isScrollDown, isSticky } = this.state
+    const classHide = isScrollDown ? 'scroll' : ''
+    const classSticky = isSticky ? 'sticky' : ''
 
     return (
       <Fragment>
@@ -167,8 +186,9 @@ class Nav extends Component {
                   activeClass="active"
                   spy={true}
                   to="home"
-                  onClick={() => this.onHandleScrollTo('home')}
-                  offset={-115}
+                  smooth={true}
+                  duration={500}
+                  offset={-60}
                 >
                   Home
                 </Link>
@@ -178,7 +198,9 @@ class Nav extends Component {
                   activeClass="active"
                   spy={true}
                   to="vision"
-                  onClick={() => this.onHandleScrollTo('vision')}
+                  smooth={true}
+                  duration={500}
+                  offset={-60}
                 >
                   Vision
                 </Link>
@@ -188,8 +210,9 @@ class Nav extends Component {
                   activeClass="active"
                   spy={true}
                   to="project"
-                  onClick={() => this.onHandleScrollTo('project')}
-                  offset={-115}
+                  smooth={true}
+                  duration={500}
+                  offset={-60}
                 >
                   Project
                 </Link>
@@ -199,8 +222,9 @@ class Nav extends Component {
                   activeClass="active"
                   spy={true}
                   to="commander"
-                  onClick={() => this.onHandleScrollTo('commander')}
-                  offset={-115}
+                  smooth={true}
+                  duration={500}
+                  offset={-60}
                 >
                   Commander
                 </Link>
@@ -209,48 +233,55 @@ class Nav extends Component {
               <ContactButton>CONTACT</ContactButton>
             </NavStyled>
           </HeaderStyle>
-          <NavStyledMobile>
+          <NavStyledMobile className={classSticky}>
             <AStyle>
               <Link
+                activeClass="active"
                 spy={true}
                 to="home"
-                onClick={() => this.onHandleScrollTo('home')}
-                offset={-115}
+                smooth={true}
+                duration={500}
+                offset={-55}
               >
                 Home
               </Link>
             </AStyle>
             <AStyle>
               <Link
+                activeClass="active"
                 spy={true}
                 to="vision"
-                onClick={() => this.onHandleScrollTo('vision')}
-                offset={-115}
+                smooth={true}
+                duration={500}
+                offset={-55}
               >
                 Vision
               </Link>
             </AStyle>
             <AStyle>
               <Link
+                activeClass="active"
                 spy={true}
                 to="project"
-                onClick={() => this.onHandleScrollTo('project')}
-                offset={-115}
+                smooth={true}
+                duration={500}
+                offset={-55}
               >
                 Project
               </Link>
             </AStyle>
             <AStyle>
               <Link
+                activeClass="active"
                 spy={true}
                 to="commander"
-                onClick={() => this.onHandleScrollTo('commander')}
-                offset={-115}
+                smooth={true}
+                duration={500}
+                offset={-55}
               >
                 Commander
               </Link>
             </AStyle>
-
             <ContactButton>CONTACT</ContactButton>
           </NavStyledMobile>
         </HeaderContainer>

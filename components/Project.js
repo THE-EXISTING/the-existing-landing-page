@@ -90,29 +90,56 @@ const PlasmaChainDemo = styled.p`
   }
 
   ${media.lessThan('medium')`
-  font-size: 3.2rem;
+    font-size: 3.2rem;
   `};
 `
 
 const PlasmaQuote = styled.div`
   font-size: 1.3rem;
   padding: 0 6.4rem;
+
+  ${media.lessThan('medium')`
+    padding: 0;
+    text-align: left;
+  `};
 `
 
 const BorderContainer = styled.div`
-  cursor: pointer;
-  background-image: url('../static/Icon/Border.svg');
-  width: 230px;
-  height: 84px;
+  position: relative;
+  z-index: 1;
   margin: 64px auto 84px auto;
 
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+`
+
+const BorderImg = styled.div`
+  cursor: pointer;
+  mask-image: url('../static/Icon/Border.svg');
+  background-image: linear-gradient(#ffffff 0%, #a5bdc2 100%);
+  width: 230px;
+  height: 84px;
+  cursor: pointer;
+  opacity: 0.34;
+  margin: auto;
+  transition: all 0.3s;
+
+  &:hover {
+    background-image: linear-gradient(#ffffff 0%, #ffffff 100%);
+    opacity: 1;
   }
+`
+
+const OmiseGoImg = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  margin: auto;
+
 `
 
 const HorizontalLine = styled.hr`
@@ -143,13 +170,13 @@ function Project() {
           <br /> All of these is an open source project of OmiseGO.
         </PlasmaQuote>
         <BorderContainer>
-          <div
+          <BorderImg
             onClick={() => {
               window.open('https://github.com/omisego', '_blank')
             }}
           >
-            <img src="/static/Icon/Omisego.svg" alt="" width="156px" height="48px" />
-          </div>
+          </BorderImg>
+          <OmiseGoImg src="/static/Icon/Omisego.svg" alt="" width="156px" height="48px" />
         </BorderContainer>
         <HorizontalLine />
         <ProjectOrder>

@@ -9,7 +9,7 @@
             <stop stop-color="#A5BDC2" offset="100%"></stop>
         </linearGradient>
     </defs>
-    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.34">
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="1">
         <g id="Desktop-HD" transform="translate(-605.000000, -1654.000000)" fill-rule="nonzero" stroke="url(#linearGradient-1)" stroke-width="2">
             <g id="Group" transform="translate(605.000000, 1654.000000)">
                 <g id="Group-13-Copy">

@@ -14,6 +14,7 @@ const FooterContainer = styled.footer`
 
   ${media.lessThan('medium')`
     height: auto;
+    margin-bottom: 8px;
   `};
 `
 
@@ -91,6 +92,34 @@ const ContactLink = styled.a`
   color: #ffffff;
 `
 
+const FooterBottomText = styled.div`
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 0.34;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-top-left-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  ${media.lessThan('medium')`
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0.60;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    z-index: 999999;
+  `};
+`
+
 function footer() {
   return (
     <FooterContainer>
@@ -99,7 +128,7 @@ function footer() {
         <FooterContent>
           <AddressContainer>
             <div style={{ fontSize: '1.6rem' }}>
-              Existing company co. Ltd. <br /> Asok tower, 217/16 21 Sukhumvit Rd,
+              The Existing co. Ltd. <br /> Asok tower, 217/23 21 Sukhumvit Rd,
               <br /> Khlong Toei Nuea, Watthana, Bangkok 10110 <br /> Thailand
             </div>
             <ContactContainer>
@@ -108,7 +137,7 @@ function footer() {
                 <img src="/static/Icon/Email.svg" alt="" />
 
                 <ContactLink href="mailto:contact@existing.co?subject=Put your subject here...">
-                  <p>contact@existing.io</p>
+                  <p>contact@existing.co</p>
                 </ContactLink>
               </ContactInfo>
             </ContactContainer>
@@ -119,6 +148,7 @@ function footer() {
           </CopyRightsContainer>
         </FooterContent>
       </FooterTextContainer>
+      <FooterBottomText>Why we set up THE EXISTING?</FooterBottomText>
     </FooterContainer>
   )
 }

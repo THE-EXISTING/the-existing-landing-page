@@ -5,8 +5,8 @@ import { string } from 'prop-types'
 const defaultTitle = 'The Existing'
 const defaultDescription =
   'We believe that technologies are the key for people’s better life We have established an Existing Company for creating the challenging and very tough projects that will be the most beneficial to our users.'
-const defaultOGURL = 'https://the-existing.netlify.com/'
-const defaultOGImage = 'https://the-existing.netlify.com/static/Logo/Existing_color.svg'
+const defaultOGURL = 'https://existing.co/'
+const defaultOGImage = '/static/image/the-existing-thumbnail.jpg'
 
 const Head = props => (
   <NextHead>

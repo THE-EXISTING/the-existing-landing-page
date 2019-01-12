@@ -5,9 +5,9 @@ import { scroller } from 'react-scroll'
 
 const HomeContainer = styled.div`
   position: relative;
-  height: 100vh;
   text-align: center;
   overflow: hidden;
+  min-height: 100vh;
 `
 
 const StarBGImg = styled.div`
@@ -61,6 +61,7 @@ const ExistingContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 600px;
 `
 
 const ExistingText = styled.div`
@@ -105,22 +106,31 @@ const ButtonContainer = styled.div`
 `
 
 const ContactButtonSvg = styled.div`
-  background-image: url('../static/Icon/Button.svg');
+  mask-image: url('../static/Icon/Button.svg');
+  background-image: linear-gradient(141deg, #ffffff 0%, #a5bdc2 100%);
   width: 200px;
   height: 48px;
+  cursor: pointer;
+
+  &:hover {
+    background-image: linear-gradient(141deg, #ffffff 0%, #ffffff 100%);
+  }
+`
+
+const ContactText = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
   font-family: ProductSans-Regular;
   letter-spacing: 3px;
-  cursor: pointer;
   color: #ffffff;
-
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  }
+  z-index: -1;
 `
 
 const ScrollDownContainer = styled.div`
@@ -141,11 +151,14 @@ const ScrollDownContainer = styled.div`
   }
 `
 
-const ImgFlare = styled.img`
+const Flare = styled.div`
   position: absolute;
-  left: -55%;
-  top: -800%;
+  left: -350px;
+  top: -220px;
   opacity: 0.7;
+  background-image: radial-gradient(rgba(136, 156, 222, 0.1), transparent 70%);
+  width: 1000px;
+  height: 500px;
 
   ${media.lessThan('medium')`
     display: none;
@@ -161,6 +174,23 @@ const VerticalLine = styled.hr`
 
   ${media.lessThan('medium')`
     display: none;
+  `};
+`
+
+const ExistingLogo = styled.img`
+  margin-left: 31.27px;
+
+  ${media.lessThan('medium')`
+    margin-left: 0;
+  `};
+`
+
+const ExistingQuote = styled.span`
+  text-align: left;
+  line-height: 1.2;
+
+  ${media.lessThan('medium')`
+    text-align: center;
   `};
 `
 
@@ -201,20 +231,24 @@ class Home extends Component {
           <ExistingText>
             <ImgOverlay src="/static/Logo/EX_overlay.svg" alt="" />
             <div>
-              <ImgFlare src="/static/image/flare.png" />
-              <img src="/static/Logo/Existing_color.svg" alt="" />
+              <Flare />
+              <ExistingLogo src="/static/Logo/Existing_color.svg" alt="" />
             </div>
             <span style={{ padding: '0 2rem' }}>
               <VerticalLine />
             </span>
-            <span style={{ width: '300px' }}>
-              limits do <span style={{ color: '#88DBDE' }}>not</span> exist
-            </span>
+            <ExistingQuote>
+              make it <span style={{ color: '#88DBDE' }}>existing</span> by <br />
+              <span style={{ color: '#88DBDE' }}>exiting</span> the limitations
+            </ExistingQuote>
           </ExistingText>
-          <ButtonContainer>
-            <ContactButtonSvg>
-              <div>CONTACT</div>
-            </ContactButtonSvg>
+          <ButtonContainer
+            onClick={() => {
+              window.open('https://m.me/TheExistingCompany', '_blank')
+            }}
+          >
+            <ContactButtonSvg />
+            <ContactText>CONTACT</ContactText>
           </ButtonContainer>
           <ScrollDownContainer>
             <div onClick={() => this.onHandleScrollTo('vision')}>

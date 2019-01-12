@@ -87,6 +87,14 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 4px;
   }
 
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    overflow-x: scroll;
+  }
 `
 const Index = () => (
   <div>

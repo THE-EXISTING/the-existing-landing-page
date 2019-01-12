@@ -7,12 +7,14 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "deploy": "yarn export && netlify deploy --dir=out --prod"
+    "deploy:netlify": "yarn export && netlify deploy --dir=out --prod",
+    "deploy:firebase": "yarn export && firebase deploy"
   },
   "dependencies": {
     "next": "^7.0.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "next-offline": "^3.3.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-scroll": "^1.7.10",
     "react-slick": "^0.23.2",
     "slick-carousel": "^1.8.1",
@@ -21,7 +23,6 @@
     "typed.js": "^2.0.9"
   },
   "devDependencies": {
-    "@zeit/next-css": "^1.0.1",
     "babel-plugin-styled-components": "^1.10.0"
   }
 }
