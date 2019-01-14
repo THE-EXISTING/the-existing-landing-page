@@ -128,7 +128,7 @@ function footer() {
         <FooterContent>
           <AddressContainer>
             <div style={{ fontSize: '1.6rem' }}>
-              The Existing co. Ltd. <br /> Asok tower, 217/23 21 Sukhumvit Rd,
+              The Existing co. Ltd. <br /> Asok tower, 219/23 21 Sukhumvit Rd,
               <br /> Khlong Toei Nuea, Watthana, Bangkok 10110 <br /> Thailand
             </div>
             <ContactContainer>
@@ -148,7 +148,16 @@ function footer() {
           </CopyRightsContainer>
         </FooterContent>
       </FooterTextContainer>
-      <FooterBottomText>Why we set up THE EXISTING?</FooterBottomText>
+      <FooterBottomText
+        onClick={() =>
+          window.open(
+            'https://medium.com/the-existing/the-existing-at-day-zero-dbae93e6218',
+            '_blank'
+          )
+        }
+      >
+        Why we set up THE EXISTING?
+      </FooterBottomText>
     </FooterContainer>
   )
 }
