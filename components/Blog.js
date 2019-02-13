@@ -75,9 +75,9 @@ class Blog extends Component {
               <img src="/static/Icon/Medium_DCEN.svg" alt="" />
             </div>
           </DcenMedium>
-          <DcenMedium onClick={() => this.openNewTab('https://blog.nextzy.me/')}>
+          <DcenMedium onClick={() => this.openNewTab('https://medium.com/the-existing')}>
             <div style={{ padding: '4.5px' }}>
-              <img src="/static/Icon/Medium_NEXTZY.svg" alt="" />
+              <img src="/static/Icon/Medium_EXISTING.svg" alt="" />
             </div>
           </DcenMedium>
         </BlogContainer>
