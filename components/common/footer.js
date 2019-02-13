@@ -128,7 +128,7 @@ function footer() {
         <FooterContent>
           <AddressContainer>
             <div style={{ fontSize: '1.6rem' }}>
-              The Existing co. Ltd. <br /> Asok tower, 219/23 21 Sukhumvit Rd,
+              The Existing Co. Ltd. <br /> Asoke tower, 219/23 21 Sukhumvit Rd,
               <br /> Khlong Toei Nuea, Watthana, Bangkok 10110 <br /> Thailand
             </div>
             <ContactContainer>
@@ -143,7 +143,7 @@ function footer() {
             </ContactContainer>
           </AddressContainer>
           <CopyRightsContainer>
-            <p style={{ opacity: '0.7' }}>© 2020 Existing company. All Rights Reserved</p>
+            <p style={{ opacity: '0.7' }}>© 2019 The Existing company. All Rights Reserved</p>
             {/* <img src="/static/Icon/IPFS.svg" alt="" /> */}
           </CopyRightsContainer>
         </FooterContent>
